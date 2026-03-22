@@ -5,13 +5,13 @@ export {
   type IntegrationSummary,
   type IntegrationListResponse,
   type IntegrationDeleteResponse,
-  type IntegrationPhoneResponse,
-  type IntegrationRetrieveSetupResponse,
+  type IntegrationCreatePhoneResponse,
+  type IntegrationGetSetupURLResponse,
   type IntegrationRetrieveParams,
   type IntegrationListParams,
   type IntegrationDeleteParams,
-  type IntegrationPhoneParams,
-  type IntegrationRetrieveSetupParams,
+  type IntegrationCreatePhoneParams,
+  type IntegrationGetSetupURLParams,
 } from './integrations';
 export { Msteams, type MsTeamsTeamRef, type MsteamTeamsResponse, type MsteamTeamsParams } from './msteams';
 export { Slack, type SlackIntegration, type SlackUpdateParams } from './slack';

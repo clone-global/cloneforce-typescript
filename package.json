@@ -2,7 +2,7 @@
   "name": "cloneforce",
   "version": "0.0.3",
   "description": "The official TypeScript library for the Cloneforce API",
-  "author": "Cloneforce <>",
+  "author": "Cloneforce <developers@cloneforce.com>",
   "types": "dist/index.d.ts",
   "main": "dist/index.js",
   "type": "commonjs",

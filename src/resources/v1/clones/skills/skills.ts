@@ -23,7 +23,7 @@ export class Skills extends APIResource {
    * Attaches a marketplace skill to a clone. Returns 409 if already attached.
    */
   create(cloneID: string, body: SkillCreateParams, options?: RequestOptions): APIPromise<SkillSummary> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/skills`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/skills`, { body, ...options });
   }
 
   /**
@@ -31,7 +31,7 @@ export class Skills extends APIResource {
    */
   update(skillName: string, params: SkillUpdateParams, options?: RequestOptions): APIPromise<SkillSummary> {
     const { cloneId, ...body } = params;
-    return this._client.patch(path`/api/v1/clones/${cloneId}/skills/${skillName}`, { body, ...options });
+    return this._client.patch(path`/public/v1/clones/${cloneId}/skills/${skillName}`, { body, ...options });
   }
 
   /**
@@ -42,7 +42,7 @@ export class Skills extends APIResource {
     query: SkillListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<SkillListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/skills`, { query, ...options });
+    return this._client.get(path`/public/v1/clones/${cloneID}/skills`, { query, ...options });
   }
 
   /**
@@ -54,7 +54,7 @@ export class Skills extends APIResource {
     options?: RequestOptions,
   ): APIPromise<SkillDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/skills/${skillName}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/skills/${skillName}`, options);
   }
 }
 

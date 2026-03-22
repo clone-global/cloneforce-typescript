@@ -8,6 +8,12 @@ export {
   type ActivityRetrieveParams,
   type ActivityDeleteParams,
 } from './activity';
+export {
+  Chats,
+  type ChatCompletionResponse,
+  type CreateChatResponse,
+  type ChatCreateParams,
+} from './chats/index';
 export { Clones, type CloneListResponse } from './clones';
 export {
   Files,
@@ -34,15 +40,15 @@ export {
   type IntegrationSummary,
   type IntegrationListResponse,
   type IntegrationDeleteResponse,
-  type IntegrationPhoneResponse,
-  type IntegrationRetrieveSetupResponse,
+  type IntegrationCreatePhoneResponse,
+  type IntegrationGetSetupURLResponse,
   type IntegrationRetrieveParams,
   type IntegrationListParams,
   type IntegrationDeleteParams,
-  type IntegrationPhoneParams,
-  type IntegrationRetrieveSetupParams,
+  type IntegrationCreatePhoneParams,
+  type IntegrationGetSetupURLParams,
 } from './integrations/index';
-export { Profile, type CloneHeadshot, type CloneProfile, type ProfilePatchAllParams } from './profile';
+export { Profile, type CloneHeadshot, type CloneProfile, type ProfileUpdateParams } from './profile';
 export {
   Skills,
   type SkillSummary,

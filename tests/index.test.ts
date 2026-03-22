@@ -322,13 +322,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['CLONEFORCE_BASE_URL'] = ''; // empty
       const client = new Cloneforce({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://app.cloneforce.com');
+      expect(client.baseURL).toEqual('https://api.cloneforce.com');
     });
 
     test('blank env variable', () => {
       process.env['CLONEFORCE_BASE_URL'] = '  '; // blank
       const client = new Cloneforce({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://app.cloneforce.com');
+      expect(client.baseURL).toEqual('https://api.cloneforce.com');
     });
 
     test('in request options', () => {

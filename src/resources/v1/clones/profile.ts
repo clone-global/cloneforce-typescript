@@ -12,16 +12,16 @@ export class Profile extends APIResource {
   /**
    * Returns the full profile and aesthetics for a clone.
    */
-  list(cloneID: string, options?: RequestOptions): APIPromise<CloneProfile> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/profile`, options);
+  retrieve(cloneID: string, options?: RequestOptions): APIPromise<CloneProfile> {
+    return this._client.get(path`/public/v1/clones/${cloneID}/profile`, options);
   }
 
   /**
    * Updates one or more fields on a clone's profile. Only provided fields are
    * changed.
    */
-  patchAll(cloneID: string, body: ProfilePatchAllParams, options?: RequestOptions): APIPromise<CloneProfile> {
-    return this._client.patch(path`/api/v1/clones/${cloneID}/profile`, { body, ...options });
+  update(cloneID: string, body: ProfileUpdateParams, options?: RequestOptions): APIPromise<CloneProfile> {
+    return this._client.patch(path`/public/v1/clones/${cloneID}/profile`, { body, ...options });
   }
 }
 
@@ -117,7 +117,7 @@ export namespace CloneProfile {
   }
 }
 
-export interface ProfilePatchAllParams {
+export interface ProfileUpdateParams {
   appearanceDesc?: string;
 
   birthdate?: string;
@@ -175,6 +175,6 @@ export declare namespace Profile {
   export {
     type CloneHeadshot as CloneHeadshot,
     type CloneProfile as CloneProfile,
-    type ProfilePatchAllParams as ProfilePatchAllParams,
+    type ProfileUpdateParams as ProfileUpdateParams,
   };
 }

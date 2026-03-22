@@ -14,7 +14,7 @@ export class Slack extends APIResource {
    * installation.
    */
   create(cloneID: string, options?: RequestOptions): APIPromise<SlackIntegration> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/integrations/slack`, options);
+    return this._client.post(path`/public/v1/clones/${cloneID}/integrations/slack`, options);
   }
 
   /**
@@ -27,7 +27,7 @@ export class Slack extends APIResource {
     options?: RequestOptions,
   ): APIPromise<SlackIntegration> {
     const { cloneId, ...body } = params;
-    return this._client.patch(path`/api/v1/clones/${cloneId}/integrations/slack/${integrationID}`, {
+    return this._client.patch(path`/public/v1/clones/${cloneId}/integrations/slack/${integrationID}`, {
       body,
       ...options,
     });

@@ -17,7 +17,7 @@ export class Gallery extends APIResource {
     body: GalleryCreateParams,
     options?: RequestOptions,
   ): APIPromise<GalleryItemSummary> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/gallery`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/gallery`, { body, ...options });
   }
 
   /**
@@ -29,7 +29,7 @@ export class Gallery extends APIResource {
     options?: RequestOptions,
   ): APIPromise<GalleryItemSummary> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/gallery/${itemID}`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/gallery/${itemID}`, options);
   }
 
   /**
@@ -40,7 +40,7 @@ export class Gallery extends APIResource {
     query: GalleryListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<GalleryListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/gallery`, { query, ...options });
+    return this._client.get(path`/public/v1/clones/${cloneID}/gallery`, { query, ...options });
   }
 
   /**
@@ -52,7 +52,7 @@ export class Gallery extends APIResource {
     options?: RequestOptions,
   ): APIPromise<GalleryDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/gallery/${itemID}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/gallery/${itemID}`, options);
   }
 }
 

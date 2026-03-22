@@ -25,7 +25,7 @@ export class Integrations extends APIResource {
     options?: RequestOptions,
   ): APIPromise<IntegrationSummary> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/integrations/${integrationID}`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/integrations/${integrationID}`, options);
   }
 
   /**
@@ -36,7 +36,7 @@ export class Integrations extends APIResource {
     query: IntegrationListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<IntegrationListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/integrations`, { query, ...options });
+    return this._client.get(path`/public/v1/clones/${cloneID}/integrations`, { query, ...options });
   }
 
   /**
@@ -49,7 +49,7 @@ export class Integrations extends APIResource {
     options?: RequestOptions,
   ): APIPromise<IntegrationDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/integrations/${integrationID}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/integrations/${integrationID}`, options);
   }
 
   /**
@@ -57,12 +57,12 @@ export class Integrations extends APIResource {
    * sufficient account credits. Creates a Twilio number, ElevenLabs voice agent, and
    * billing subscription.
    */
-  phone(
+  createPhone(
     cloneID: string,
-    body: IntegrationPhoneParams,
+    body: IntegrationCreatePhoneParams,
     options?: RequestOptions,
-  ): APIPromise<IntegrationPhoneResponse> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/integrations/phone`, { body, ...options });
+  ): APIPromise<IntegrationCreatePhoneResponse> {
+    return this._client.post(path`/public/v1/clones/${cloneID}/integrations/phone`, { body, ...options });
   }
 
   /**
@@ -70,13 +70,13 @@ export class Integrations extends APIResource {
    * `msteams`. Present this URL to the user and poll the integrations list to detect
    * completion.
    */
-  retrieveSetup(
-    type: 'email' | 'msteams',
-    params: IntegrationRetrieveSetupParams,
+  getSetupURL(
+    integrationID: string,
+    params: IntegrationGetSetupURLParams,
     options?: RequestOptions,
-  ): APIPromise<IntegrationRetrieveSetupResponse> {
+  ): APIPromise<IntegrationGetSetupURLResponse> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/integrations/${type}/setup`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/integrations/${integrationID}/setup`, options);
   }
 }
 
@@ -137,7 +137,7 @@ export interface IntegrationDeleteResponse {
   deleted: true;
 }
 
-export interface IntegrationPhoneResponse {
+export interface IntegrationCreatePhoneResponse {
   id: string;
 
   phoneNumber: string;
@@ -145,7 +145,7 @@ export interface IntegrationPhoneResponse {
   status: string;
 }
 
-export interface IntegrationRetrieveSetupResponse {
+export interface IntegrationGetSetupURLResponse {
   setupUrl: string;
 
   type: string;
@@ -166,14 +166,14 @@ export interface IntegrationDeleteParams {
   cloneId: string;
 }
 
-export interface IntegrationPhoneParams {
+export interface IntegrationCreatePhoneParams {
   /**
    * Phone number to purchase (from the available numbers search)
    */
   phone: string;
 }
 
-export interface IntegrationRetrieveSetupParams {
+export interface IntegrationGetSetupURLParams {
   cloneId: string;
 }
 
@@ -185,13 +185,13 @@ export declare namespace Integrations {
     type IntegrationSummary as IntegrationSummary,
     type IntegrationListResponse as IntegrationListResponse,
     type IntegrationDeleteResponse as IntegrationDeleteResponse,
-    type IntegrationPhoneResponse as IntegrationPhoneResponse,
-    type IntegrationRetrieveSetupResponse as IntegrationRetrieveSetupResponse,
+    type IntegrationCreatePhoneResponse as IntegrationCreatePhoneResponse,
+    type IntegrationGetSetupURLResponse as IntegrationGetSetupURLResponse,
     type IntegrationRetrieveParams as IntegrationRetrieveParams,
     type IntegrationListParams as IntegrationListParams,
     type IntegrationDeleteParams as IntegrationDeleteParams,
-    type IntegrationPhoneParams as IntegrationPhoneParams,
-    type IntegrationRetrieveSetupParams as IntegrationRetrieveSetupParams,
+    type IntegrationCreatePhoneParams as IntegrationCreatePhoneParams,
+    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams,
   };
 
   export {
