@@ -24,7 +24,7 @@ export class Headshot extends APIResource {
     body: HeadshotGenerateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<VoiceAPI.GenerationStatus> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/headshot/generate`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/headshot/generate`, { body, ...options });
   }
 }
 

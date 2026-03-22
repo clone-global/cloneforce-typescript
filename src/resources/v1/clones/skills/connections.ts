@@ -18,10 +18,10 @@ export class Connections extends APIResource {
     options?: RequestOptions,
   ): APIPromise<SkillConnectionInfo> {
     const { cloneId, skillName, ...body } = params;
-    return this._client.put(path`/api/v1/clones/${cloneId}/skills/${skillName}/connections/${settingName}`, {
-      body,
-      ...options,
-    });
+    return this._client.put(
+      path`/public/v1/clones/${cloneId}/skills/${skillName}/connections/${settingName}`,
+      { body, ...options },
+    );
   }
 
   /**
@@ -34,7 +34,7 @@ export class Connections extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ConnectionListResponse> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/skills/${skillName}/connections`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/skills/${skillName}/connections`, options);
   }
 }
 

@@ -19,7 +19,7 @@ export class Msteams extends APIResource {
     options?: RequestOptions,
   ): APIPromise<MsteamTeamsResponse> {
     const { cloneId, ...body } = params;
-    return this._client.post(path`/api/v1/clones/${cloneId}/integrations/msteams/${integrationID}/teams`, {
+    return this._client.post(path`/public/v1/clones/${cloneId}/integrations/msteams/${integrationID}/teams`, {
       body,
       ...options,
     });

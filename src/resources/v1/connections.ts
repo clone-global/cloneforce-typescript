@@ -13,14 +13,14 @@ export class Connections extends APIResource {
    * Creates a new key-value connection credential.
    */
   create(body: ConnectionCreateParams, options?: RequestOptions): APIPromise<ConnectionDetail> {
-    return this._client.post('/api/v1/connections', { body, ...options });
+    return this._client.post('/public/v1/connections', { body, ...options });
   }
 
   /**
    * Get a connection
    */
   retrieve(connectionID: string, options?: RequestOptions): APIPromise<ConnectionDetail> {
-    return this._client.get(path`/api/v1/connections/${connectionID}`, options);
+    return this._client.get(path`/public/v1/connections/${connectionID}`, options);
   }
 
   /**
@@ -32,7 +32,7 @@ export class Connections extends APIResource {
     body: ConnectionUpdateParams,
     options?: RequestOptions,
   ): APIPromise<ConnectionDetail> {
-    return this._client.patch(path`/api/v1/connections/${connectionID}`, { body, ...options });
+    return this._client.patch(path`/public/v1/connections/${connectionID}`, { body, ...options });
   }
 
   /**
@@ -42,14 +42,14 @@ export class Connections extends APIResource {
     query: ConnectionListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<ConnectionListResponse> {
-    return this._client.get('/api/v1/connections', { query, ...options });
+    return this._client.get('/public/v1/connections', { query, ...options });
   }
 
   /**
    * Delete a connection
    */
   delete(connectionID: string, options?: RequestOptions): APIPromise<ConnectionDeleteResponse> {
-    return this._client.delete(path`/api/v1/connections/${connectionID}`, options);
+    return this._client.delete(path`/public/v1/connections/${connectionID}`, options);
   }
 
   /**
@@ -57,14 +57,14 @@ export class Connections extends APIResource {
    * provision URL to the user to complete the OAuth consent flow.
    */
   createOAuth(body: ConnectionCreateOAuthParams, options?: RequestOptions): APIPromise<OAuthProvision> {
-    return this._client.post('/api/v1/connections/oauth', { body, ...options });
+    return this._client.post('/public/v1/connections/oauth', { body, ...options });
   }
 
   /**
    * Returns lightweight validity and expiration status.
    */
   getStatus(connectionID: string, options?: RequestOptions): APIPromise<ConnectionStatus> {
-    return this._client.get(path`/api/v1/connections/${connectionID}/status`, options);
+    return this._client.get(path`/public/v1/connections/${connectionID}/status`, options);
   }
 
   /**
@@ -72,14 +72,14 @@ export class Connections extends APIResource {
    * connection types.
    */
   refresh(connectionID: string, options?: RequestOptions): APIPromise<ConnectionStatus> {
-    return this._client.post(path`/api/v1/connections/${connectionID}/refresh`, options);
+    return this._client.post(path`/public/v1/connections/${connectionID}/refresh`, options);
   }
 
   /**
    * Returns a new provision URL for an existing OAuth connection to re-authorize.
    */
   reprovisionOAuth(connectionID: string, options?: RequestOptions): APIPromise<OAuthProvision> {
-    return this._client.post(path`/api/v1/connections/${connectionID}/reprovision`, options);
+    return this._client.post(path`/public/v1/connections/${connectionID}/reprovision`, options);
   }
 }
 
@@ -104,7 +104,7 @@ export interface ConnectionDetail {
 
   expiresAt?: string;
 
-  extraFields?: { [key: string]: string };
+  metadata?: { [key: string]: string };
 }
 
 export interface ConnectionStatus {

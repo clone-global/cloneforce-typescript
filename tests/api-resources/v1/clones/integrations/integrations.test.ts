@@ -63,8 +63,8 @@ describe('resource integrations', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('phone: only required params', async () => {
-    const responsePromise = client.v1.clones.integrations.phone('cloneId', { phone: 'phone' });
+  test.skip('createPhone: only required params', async () => {
+    const responsePromise = client.v1.clones.integrations.createPhone('cloneId', { phone: 'phone' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -75,13 +75,15 @@ describe('resource integrations', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('phone: required and optional params', async () => {
-    const response = await client.v1.clones.integrations.phone('cloneId', { phone: 'phone' });
+  test.skip('createPhone: required and optional params', async () => {
+    const response = await client.v1.clones.integrations.createPhone('cloneId', { phone: 'phone' });
   });
 
   // Mock server tests are disabled
-  test.skip('retrieveSetup: only required params', async () => {
-    const responsePromise = client.v1.clones.integrations.retrieveSetup('email', { cloneId: 'cloneId' });
+  test.skip('getSetupURL: only required params', async () => {
+    const responsePromise = client.v1.clones.integrations.getSetupURL('integrationId', {
+      cloneId: 'cloneId',
+    });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -92,7 +94,7 @@ describe('resource integrations', () => {
   });
 
   // Mock server tests are disabled
-  test.skip('retrieveSetup: required and optional params', async () => {
-    const response = await client.v1.clones.integrations.retrieveSetup('email', { cloneId: 'cloneId' });
+  test.skip('getSetupURL: required and optional params', async () => {
+    const response = await client.v1.clones.integrations.getSetupURL('integrationId', { cloneId: 'cloneId' });
   });
 });

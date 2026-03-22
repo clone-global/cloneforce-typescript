@@ -18,7 +18,7 @@ export class Skills extends APIResource {
     query: SkillRetrieveParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<SkillRetrieveResponse> {
-    return this._client.get(path`/api/v1/skills/${skillID}`, { query, ...options });
+    return this._client.get(path`/public/v1/skills/${skillID}`, { query, ...options });
   }
 
   /**
@@ -26,7 +26,7 @@ export class Skills extends APIResource {
    * clone.
    */
   search(query: SkillSearchParams, options?: RequestOptions): APIPromise<SkillSearchResponse> {
-    return this._client.get('/api/v1/skills/search', { query, ...options });
+    return this._client.get('/public/v1/skills/search', { query, ...options });
   }
 }
 

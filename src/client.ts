@@ -128,7 +128,7 @@ export class Cloneforce {
    * API Client for interfacing with the Cloneforce API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['CLONEFORCE_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['CLONEFORCE_BASE_URL'] ?? https://app.cloneforce.com] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['CLONEFORCE_BASE_URL'] ?? https://api.cloneforce.com] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -150,7 +150,7 @@ export class Cloneforce {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `https://app.cloneforce.com`,
+      baseURL: baseURL || `https://api.cloneforce.com`,
     };
 
     this.baseURL = options.baseURL!;
@@ -196,7 +196,7 @@ export class Cloneforce {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== 'https://app.cloneforce.com';
+    return this.baseURL !== 'https://api.cloneforce.com';
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
