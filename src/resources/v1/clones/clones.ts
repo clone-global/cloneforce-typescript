@@ -34,7 +34,7 @@ import {
 import * as HeadshotAPI from './headshot';
 import { Headshot, HeadshotGenerateParams } from './headshot';
 import * as ProfileAPI from './profile';
-import { CloneHeadshot, CloneProfile, Profile, ProfilePatchAllParams } from './profile';
+import { CloneHeadshot, CloneProfile, Profile, ProfileUpdateParams } from './profile';
 import * as TasksAPI from './tasks';
 import {
   TaskCreateParams,
@@ -50,17 +50,19 @@ import {
 } from './tasks';
 import * as VoiceAPI from './voice';
 import { GenerateRequest, GenerationStatus, Voice, VoiceGenerateParams } from './voice';
+import * as ChatsAPI from './chats/chats';
+import { ChatCompletionResponse, ChatCreateParams, Chats, CreateChatResponse } from './chats/chats';
 import * as IntegrationsAPI from './integrations/integrations';
 import {
+  IntegrationCreatePhoneParams,
+  IntegrationCreatePhoneResponse,
   IntegrationDeleteParams,
   IntegrationDeleteResponse,
+  IntegrationGetSetupURLParams,
+  IntegrationGetSetupURLResponse,
   IntegrationListParams,
   IntegrationListResponse,
-  IntegrationPhoneParams,
-  IntegrationPhoneResponse,
   IntegrationRetrieveParams,
-  IntegrationRetrieveSetupParams,
-  IntegrationRetrieveSetupResponse,
   IntegrationSummary,
   Integrations,
 } from './integrations/integrations';
@@ -91,12 +93,13 @@ export class Clones extends APIResource {
   gallery: GalleryAPI.Gallery = new GalleryAPI.Gallery(this._client);
   integrations: IntegrationsAPI.Integrations = new IntegrationsAPI.Integrations(this._client);
   activity: ActivityAPI.Activity = new ActivityAPI.Activity(this._client);
+  chats: ChatsAPI.Chats = new ChatsAPI.Chats(this._client);
 
   /**
    * Returns all clones in the organization, ordered by creation date descending.
    */
   list(options?: RequestOptions): APIPromise<CloneListResponse> {
-    return this._client.get('/api/v1/clones', options);
+    return this._client.get('/public/v1/clones', options);
   }
 }
 
@@ -133,6 +136,7 @@ Clones.Files = Files;
 Clones.Gallery = Gallery;
 Clones.Integrations = Integrations;
 Clones.Activity = Activity;
+Clones.Chats = Chats;
 
 export declare namespace Clones {
   export { type CloneListResponse as CloneListResponse };
@@ -141,7 +145,7 @@ export declare namespace Clones {
     Profile as Profile,
     type CloneHeadshot as CloneHeadshot,
     type CloneProfile as CloneProfile,
-    type ProfilePatchAllParams as ProfilePatchAllParams,
+    type ProfileUpdateParams as ProfileUpdateParams,
   };
 
   export {
@@ -203,13 +207,13 @@ export declare namespace Clones {
     type IntegrationSummary as IntegrationSummary,
     type IntegrationListResponse as IntegrationListResponse,
     type IntegrationDeleteResponse as IntegrationDeleteResponse,
-    type IntegrationPhoneResponse as IntegrationPhoneResponse,
-    type IntegrationRetrieveSetupResponse as IntegrationRetrieveSetupResponse,
+    type IntegrationCreatePhoneResponse as IntegrationCreatePhoneResponse,
+    type IntegrationGetSetupURLResponse as IntegrationGetSetupURLResponse,
     type IntegrationRetrieveParams as IntegrationRetrieveParams,
     type IntegrationListParams as IntegrationListParams,
     type IntegrationDeleteParams as IntegrationDeleteParams,
-    type IntegrationPhoneParams as IntegrationPhoneParams,
-    type IntegrationRetrieveSetupParams as IntegrationRetrieveSetupParams,
+    type IntegrationCreatePhoneParams as IntegrationCreatePhoneParams,
+    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams,
   };
 
   export {
@@ -219,5 +223,12 @@ export declare namespace Clones {
     type ActivityDeleteResponse as ActivityDeleteResponse,
     type ActivityRetrieveParams as ActivityRetrieveParams,
     type ActivityDeleteParams as ActivityDeleteParams,
+  };
+
+  export {
+    Chats as Chats,
+    type ChatCompletionResponse as ChatCompletionResponse,
+    type CreateChatResponse as CreateChatResponse,
+    type ChatCreateParams as ChatCreateParams,
   };
 }

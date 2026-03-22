@@ -15,7 +15,7 @@ export class Phone extends APIResource {
     query: PhoneListAvailableParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<PhoneListAvailableResponse> {
-    return this._client.get('/api/v1/integrations/phone/available', { query, ...options });
+    return this._client.get('/public/v1/integrations/phone/available', { query, ...options });
   }
 }
 

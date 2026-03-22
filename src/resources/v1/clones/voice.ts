@@ -23,7 +23,7 @@ export class Voice extends APIResource {
     body: VoiceGenerateParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<GenerationStatus> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/voice/generate`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/voice/generate`, { body, ...options });
   }
 }
 

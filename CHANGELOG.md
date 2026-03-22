@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0 (2026-03-22)
+
+Full Changelog: [v0.0.3...v0.1.0](https://github.com/clone-global/cloneforce-typescript/compare/v0.0.3...v0.1.0)
+
+### Features
+
+* update SDK versions ([50a145d](https://github.com/clone-global/cloneforce-typescript/commit/50a145d1217ce87c591446c680fe9ad524f4e506))
+
 ## 0.0.3 (2026-03-21)
 
 Full Changelog: [v0.0.2...v0.0.3](https://github.com/clone-global/cloneforce-typescript/compare/v0.0.2...v0.0.3)

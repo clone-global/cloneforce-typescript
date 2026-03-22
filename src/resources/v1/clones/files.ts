@@ -13,7 +13,7 @@ export class Files extends APIResource {
    * **Not yet implemented.** Returns 501. Pending Pinecone migration.
    */
   create(cloneID: string, body: FileCreateParams, options?: RequestOptions): APIPromise<KBFileSummary> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/files`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/files`, { body, ...options });
   }
 
   /**
@@ -21,14 +21,14 @@ export class Files extends APIResource {
    */
   retrieve(fileID: string, params: FileRetrieveParams, options?: RequestOptions): APIPromise<KBFileSummary> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/files/${fileID}`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/files/${fileID}`, options);
   }
 
   /**
    * List knowledge base files
    */
   list(cloneID: string, options?: RequestOptions): APIPromise<FileListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/files`, options);
+    return this._client.get(path`/public/v1/clones/${cloneID}/files`, options);
   }
 
   /**
@@ -36,7 +36,7 @@ export class Files extends APIResource {
    */
   delete(fileID: string, params: FileDeleteParams, options?: RequestOptions): APIPromise<FileDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/files/${fileID}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/files/${fileID}`, options);
   }
 }
 

@@ -18,14 +18,14 @@ export class Activity extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ActivityRetrieveResponse> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/activity/${activityID}`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/activity/${activityID}`, options);
   }
 
   /**
    * Returns all task run records for a clone, ordered by creation date descending.
    */
   list(cloneID: string, options?: RequestOptions): APIPromise<ActivityListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/activity`, options);
+    return this._client.get(path`/public/v1/clones/${cloneID}/activity`, options);
   }
 
   /**
@@ -37,7 +37,7 @@ export class Activity extends APIResource {
     options?: RequestOptions,
   ): APIPromise<ActivityDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/activity/${activityID}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/activity/${activityID}`, options);
   }
 }
 

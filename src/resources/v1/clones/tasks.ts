@@ -13,7 +13,7 @@ export class Tasks extends APIResource {
    * Creates a new scheduled task for a clone.
    */
   create(cloneID: string, body: TaskCreateParams, options?: RequestOptions): APIPromise<TaskSummary> {
-    return this._client.post(path`/api/v1/clones/${cloneID}/tasks`, { body, ...options });
+    return this._client.post(path`/public/v1/clones/${cloneID}/tasks`, { body, ...options });
   }
 
   /**
@@ -21,7 +21,7 @@ export class Tasks extends APIResource {
    */
   retrieve(taskID: string, params: TaskRetrieveParams, options?: RequestOptions): APIPromise<TaskSummary> {
     const { cloneId } = params;
-    return this._client.get(path`/api/v1/clones/${cloneId}/tasks/${taskID}`, options);
+    return this._client.get(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, options);
   }
 
   /**
@@ -29,7 +29,7 @@ export class Tasks extends APIResource {
    */
   update(taskID: string, params: TaskUpdateParams, options?: RequestOptions): APIPromise<TaskSummary> {
     const { cloneId, ...body } = params;
-    return this._client.patch(path`/api/v1/clones/${cloneId}/tasks/${taskID}`, { body, ...options });
+    return this._client.patch(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, { body, ...options });
   }
 
   /**
@@ -40,7 +40,7 @@ export class Tasks extends APIResource {
     query: TaskListParams | null | undefined = {},
     options?: RequestOptions,
   ): APIPromise<TaskListResponse> {
-    return this._client.get(path`/api/v1/clones/${cloneID}/tasks`, { query, ...options });
+    return this._client.get(path`/public/v1/clones/${cloneID}/tasks`, { query, ...options });
   }
 
   /**
@@ -48,7 +48,7 @@ export class Tasks extends APIResource {
    */
   delete(taskID: string, params: TaskDeleteParams, options?: RequestOptions): APIPromise<TaskDeleteResponse> {
     const { cloneId } = params;
-    return this._client.delete(path`/api/v1/clones/${cloneId}/tasks/${taskID}`, options);
+    return this._client.delete(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, options);
   }
 }
 
