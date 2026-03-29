@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.2 (2026-03-29)
+
+Full Changelog: [v0.1.1...v0.1.2](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.1...v0.1.2)
+
+### Chores
+
+* **ci:** skip lint on metadata-only changes ([72a35fb](https://github.com/clone-global/cloneforce-typescript/commit/72a35fbf37fedf7ef79b3288564fb554f992a5e2))
+* **internal:** update gitignore ([f342de6](https://github.com/clone-global/cloneforce-typescript/commit/f342de6919558be79f92b26a86bd9f0b89bd0a82))
+
 ## 0.1.1 (2026-03-22)
 
 Full Changelog: [v0.1.0...v0.1.1](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.0...v0.1.1)
