@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 (2026-04-09)
+
+Full Changelog: [v0.1.2...v0.1.3](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.2...v0.1.3)
+
+### Chores
+
+* **internal:** codegen related update ([3884f3d](https://github.com/clone-global/cloneforce-typescript/commit/3884f3dfeabe948c8f36b3de4d16dafabe48ef9a))
+
 ## 0.1.2 (2026-03-29)
 
 Full Changelog: [v0.1.1...v0.1.2](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.1...v0.1.2)
