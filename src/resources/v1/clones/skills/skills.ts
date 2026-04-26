@@ -2,13 +2,7 @@
 
 import { APIResource } from '../../../../core/resource';
 import * as ConnectionsAPI from './connections';
-import {
-  ConnectionListParams,
-  ConnectionListResponse,
-  ConnectionUpdateParams,
-  Connections,
-  SkillConnectionInfo,
-} from './connections';
+import { ConnectionListParams, ConnectionListResponse, ConnectionUpdateParams, Connections, SkillConnectionInfo } from './connections';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -30,30 +24,22 @@ export class Skills extends APIResource {
    * Updates settings and/or active status of a skill on a clone.
    */
   update(skillName: string, params: SkillUpdateParams, options?: RequestOptions): APIPromise<SkillSummary> {
-    const { cloneId, ...body } = params;
+    const { cloneId, ...body } = params
     return this._client.patch(path`/public/v1/clones/${cloneId}/skills/${skillName}`, { body, ...options });
   }
 
   /**
    * Returns all skills attached to a clone, excluding hidden system skills.
    */
-  list(
-    cloneID: string,
-    query: SkillListParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<SkillListResponse> {
+  list(cloneID: string, query: SkillListParams | null | undefined = {}, options?: RequestOptions): APIPromise<SkillListResponse> {
     return this._client.get(path`/public/v1/clones/${cloneID}/skills`, { query, ...options });
   }
 
   /**
    * Detaches a skill from a clone. System skills cannot be removed.
    */
-  delete(
-    skillName: string,
-    params: SkillDeleteParams,
-    options?: RequestOptions,
-  ): APIPromise<SkillDeleteResponse> {
-    const { cloneId } = params;
+  delete(skillName: string, params: SkillDeleteParams, options?: RequestOptions): APIPromise<SkillDeleteResponse> {
+    const { cloneId } = params
     return this._client.delete(path`/public/v1/clones/${cloneId}/skills/${skillName}`, options);
   }
 }
@@ -144,7 +130,7 @@ export declare namespace Skills {
     type SkillCreateParams as SkillCreateParams,
     type SkillUpdateParams as SkillUpdateParams,
     type SkillListParams as SkillListParams,
-    type SkillDeleteParams as SkillDeleteParams,
+    type SkillDeleteParams as SkillDeleteParams
   };
 
   export {
@@ -152,6 +138,6 @@ export declare namespace Skills {
     type SkillConnectionInfo as SkillConnectionInfo,
     type ConnectionListResponse as ConnectionListResponse,
     type ConnectionUpdateParams as ConnectionUpdateParams,
-    type ConnectionListParams as ConnectionListParams,
+    type ConnectionListParams as ConnectionListParams
   };
 }

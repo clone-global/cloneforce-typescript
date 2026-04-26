@@ -2,18 +2,12 @@
 
 import Cloneforce from 'cloneforce';
 
-const client = new Cloneforce({
-  apiKey: 'My API Key',
-  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
-});
+const client = new Cloneforce({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
 
 describe('resource msteams', () => {
   // Mock server tests are disabled
   test.skip('teams: only required params', async () => {
-    const responsePromise = client.v1.clones.integrations.msteams.teams('integrationId', {
-      cloneId: 'cloneId',
-      teamId: 'teamId',
-    });
+    const responsePromise = client.v1.clones.integrations.msteams.teams('integrationId', { cloneId: 'cloneId', teamId: 'teamId' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -25,9 +19,6 @@ describe('resource msteams', () => {
 
   // Mock server tests are disabled
   test.skip('teams: required and optional params', async () => {
-    const response = await client.v1.clones.integrations.msteams.teams('integrationId', {
-      cloneId: 'cloneId',
-      teamId: 'teamId',
-    });
+    const response = await client.v1.clones.integrations.msteams.teams('integrationId', { cloneId: 'cloneId', teamId: 'teamId' });
   });
 });

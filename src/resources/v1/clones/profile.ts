@@ -175,6 +175,6 @@ export declare namespace Profile {
   export {
     type CloneHeadshot as CloneHeadshot,
     type CloneProfile as CloneProfile,
-    type ProfileUpdateParams as ProfileUpdateParams,
+    type ProfileUpdateParams as ProfileUpdateParams
   };
 }

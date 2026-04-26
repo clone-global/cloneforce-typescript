@@ -13,16 +13,9 @@ export class Msteams extends APIResource {
    * Adds a team to an existing MS Teams integration. Validates team access via MS
    * Graph.
    */
-  teams(
-    integrationID: string,
-    params: MsteamTeamsParams,
-    options?: RequestOptions,
-  ): APIPromise<MsteamTeamsResponse> {
-    const { cloneId, ...body } = params;
-    return this._client.post(path`/public/v1/clones/${cloneId}/integrations/msteams/${integrationID}/teams`, {
-      body,
-      ...options,
-    });
+  teams(integrationID: string, params: MsteamTeamsParams, options?: RequestOptions): APIPromise<MsteamTeamsResponse> {
+    const { cloneId, ...body } = params
+    return this._client.post(path`/public/v1/clones/${cloneId}/integrations/msteams/${integrationID}/teams`, { body, ...options });
   }
 }
 
@@ -58,6 +51,6 @@ export declare namespace Msteams {
   export {
     type MsTeamsTeamRef as MsTeamsTeamRef,
     type MsteamTeamsResponse as MsteamTeamsResponse,
-    type MsteamTeamsParams as MsteamTeamsParams,
+    type MsteamTeamsParams as MsteamTeamsParams
   };
 }
