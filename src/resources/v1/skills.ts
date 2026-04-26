@@ -13,11 +13,7 @@ export class Skills extends APIResource {
    * Returns full skill details including setting definitions. If `cloneId` is
    * provided, also returns attachment and configuration status.
    */
-  retrieve(
-    skillID: string,
-    query: SkillRetrieveParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<SkillRetrieveResponse> {
+  retrieve(skillID: string, query: SkillRetrieveParams | null | undefined = {}, options?: RequestOptions): APIPromise<SkillRetrieveResponse> {
     return this._client.get(path`/public/v1/skills/${skillID}`, { query, ...options });
   }
 
@@ -118,6 +114,6 @@ export declare namespace Skills {
     type SkillRetrieveResponse as SkillRetrieveResponse,
     type SkillSearchResponse as SkillSearchResponse,
     type SkillRetrieveParams as SkillRetrieveParams,
-    type SkillSearchParams as SkillSearchParams,
+    type SkillSearchParams as SkillSearchParams
   };
 }

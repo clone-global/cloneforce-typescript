@@ -21,16 +21,9 @@ export class Slack extends APIResource {
    * Configures bot token and signing secret. Tests the connection if the bot token
    * changes.
    */
-  update(
-    integrationID: string,
-    params: SlackUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<SlackIntegration> {
-    const { cloneId, ...body } = params;
-    return this._client.patch(path`/public/v1/clones/${cloneId}/integrations/slack/${integrationID}`, {
-      body,
-      ...options,
-    });
+  update(integrationID: string, params: SlackUpdateParams, options?: RequestOptions): APIPromise<SlackIntegration> {
+    const { cloneId, ...body } = params
+    return this._client.patch(path`/public/v1/clones/${cloneId}/integrations/slack/${integrationID}`, { body, ...options });
   }
 }
 
@@ -64,5 +57,8 @@ export interface SlackUpdateParams {
 }
 
 export declare namespace Slack {
-  export { type SlackIntegration as SlackIntegration, type SlackUpdateParams as SlackUpdateParams };
+  export {
+    type SlackIntegration as SlackIntegration,
+    type SlackUpdateParams as SlackUpdateParams
+  };
 }

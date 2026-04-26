@@ -11,10 +11,7 @@ export class Phone extends APIResource {
   /**
    * Searches for available phone numbers via Twilio that can be purchased.
    */
-  listAvailable(
-    query: PhoneListAvailableParams | null | undefined = {},
-    options?: RequestOptions,
-  ): APIPromise<PhoneListAvailableResponse> {
+  listAvailable(query: PhoneListAvailableParams | null | undefined = {}, options?: RequestOptions): APIPromise<PhoneListAvailableResponse> {
     return this._client.get('/public/v1/integrations/phone/available', { query, ...options });
   }
 }
@@ -59,6 +56,6 @@ export interface PhoneListAvailableParams {
 export declare namespace Phone {
   export {
     type PhoneListAvailableResponse as PhoneListAvailableResponse,
-    type PhoneListAvailableParams as PhoneListAvailableParams,
+    type PhoneListAvailableParams as PhoneListAvailableParams
   };
 }

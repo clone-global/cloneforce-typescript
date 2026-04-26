@@ -14,6 +14,6 @@ export declare namespace Integrations {
   export {
     Phone as Phone,
     type PhoneListAvailableResponse as PhoneListAvailableResponse,
-    type PhoneListAvailableParams as PhoneListAvailableParams,
+    type PhoneListAvailableParams as PhoneListAvailableParams
   };
 }

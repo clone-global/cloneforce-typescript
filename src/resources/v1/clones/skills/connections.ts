@@ -12,28 +12,17 @@ export class Connections extends APIResource {
   /**
    * Assigns a connection to a connection-type setting on a clone skill.
    */
-  update(
-    settingName: string,
-    params: ConnectionUpdateParams,
-    options?: RequestOptions,
-  ): APIPromise<SkillConnectionInfo> {
-    const { cloneId, skillName, ...body } = params;
-    return this._client.put(
-      path`/public/v1/clones/${cloneId}/skills/${skillName}/connections/${settingName}`,
-      { body, ...options },
-    );
+  update(settingName: string, params: ConnectionUpdateParams, options?: RequestOptions): APIPromise<SkillConnectionInfo> {
+    const { cloneId, skillName, ...body } = params
+    return this._client.put(path`/public/v1/clones/${cloneId}/skills/${skillName}/connections/${settingName}`, { body, ...options });
   }
 
   /**
    * Returns connection-type settings for a skill on a clone, with their
    * configuration status.
    */
-  list(
-    skillName: string,
-    params: ConnectionListParams,
-    options?: RequestOptions,
-  ): APIPromise<ConnectionListResponse> {
-    const { cloneId } = params;
+  list(skillName: string, params: ConnectionListParams, options?: RequestOptions): APIPromise<ConnectionListResponse> {
+    const { cloneId } = params
     return this._client.get(path`/public/v1/clones/${cloneId}/skills/${skillName}/connections`, options);
   }
 }
@@ -80,6 +69,6 @@ export declare namespace Connections {
     type SkillConnectionInfo as SkillConnectionInfo,
     type ConnectionListResponse as ConnectionListResponse,
     type ConnectionUpdateParams as ConnectionUpdateParams,
-    type ConnectionListParams as ConnectionListParams,
+    type ConnectionListParams as ConnectionListParams
   };
 }

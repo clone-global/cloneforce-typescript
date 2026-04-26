@@ -2,14 +2,7 @@
 
 import { APIResource } from '../../../../core/resource';
 import * as CompletionsAPI from './completions';
-import {
-  ChatCompletionChunk,
-  ChatCompletionCompleted,
-  CompletionCreateParams,
-  CompletionCreateParamsNonStreaming,
-  CompletionCreateParamsStreaming,
-  Completions,
-} from './completions';
+import { ChatCompletionChunk, ChatCompletionCompleted, CompletionCreateParams, CompletionCreateParamsNonStreaming, CompletionCreateParamsStreaming, Completions } from './completions';
 import { APIPromise } from '../../../../core/api-promise';
 import { RequestOptions } from '../../../../internal/request-options';
 import { path } from '../../../../internal/utils/path';
@@ -63,7 +56,7 @@ export declare namespace Chats {
   export {
     type ChatCompletionResponse as ChatCompletionResponse,
     type CreateChatResponse as CreateChatResponse,
-    type ChatCreateParams as ChatCreateParams,
+    type ChatCreateParams as ChatCreateParams
   };
 
   export {
@@ -72,6 +65,6 @@ export declare namespace Chats {
     type ChatCompletionCompleted as ChatCompletionCompleted,
     type CompletionCreateParams as CompletionCreateParams,
     type CompletionCreateParamsNonStreaming as CompletionCreateParamsNonStreaming,
-    type CompletionCreateParamsStreaming as CompletionCreateParamsStreaming,
+    type CompletionCreateParamsStreaming as CompletionCreateParamsStreaming
   };
 }
