@@ -2,7 +2,10 @@
 
 import Cloneforce from 'cloneforce';
 
-const client = new Cloneforce({ apiKey: 'My API Key', baseURL: process.env["TEST_API_BASE_URL"] ?? 'http://127.0.0.1:4010' });
+const client = new Cloneforce({
+  apiKey: 'My API Key',
+  baseURL: process.env['TEST_API_BASE_URL'] ?? 'http://127.0.0.1:4010',
+});
 
 describe('resource files', () => {
   // Mock server tests are disabled
@@ -20,10 +23,10 @@ describe('resource files', () => {
   // Mock server tests are disabled
   test.skip('create: required and optional params', async () => {
     const response = await client.v1.clones.files.create('cloneId', {
-    url: 'url',
-    contentType: 'contentType',
-    name: 'name',
-  });
+      url: 'url',
+      contentType: 'contentType',
+      name: 'name',
+    });
   });
 
   // Mock server tests are disabled

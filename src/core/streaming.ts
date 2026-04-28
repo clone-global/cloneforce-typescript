@@ -8,8 +8,6 @@ import { encodeUTF8 } from '../internal/utils/bytes';
 import { loggerFor } from '../internal/utils/log';
 import type { Cloneforce } from '../client';
 
-;
-
 type Bytes = string | ArrayBuffer | Uint8Array | null | undefined;
 
 export type ServerSentEvent = {
@@ -31,17 +29,17 @@ export class Stream<Item> implements AsyncIterable<Item> {
     this.#client = client;
   }
 
-  static fromSSEResponse<Item>(response: Response,
-controller: AbortController,
-client?: Cloneforce,): Stream<Item> {
+  static fromSSEResponse<Item>(
+    response: Response,
+    controller: AbortController,
+    client?: Cloneforce,
+  ): Stream<Item> {
     let consumed = false;
     const logger = client ? loggerFor(client) : console;
 
     async function* iterator(): AsyncIterator<Item, any, undefined> {
       if (consumed) {
-        throw new CloneforceError(
-          'Cannot iterate over a consumed stream, use `.tee()` to split the stream.',
-        );
+        throw new CloneforceError('Cannot iterate over a consumed stream, use `.tee()` to split the stream.');
       }
       consumed = true;
       let done = false;
@@ -53,7 +51,7 @@ client?: Cloneforce,): Stream<Item> {
             logger.error(`Could not parse message into JSON:`, sse.data);
             logger.error(`From chunk:`, sse.raw);
             throw e;
-          };
+          }
         }
         done = true;
       } catch (e) {
@@ -97,9 +95,7 @@ client?: Cloneforce,): Stream<Item> {
 
     async function* iterator(): AsyncIterator<Item, any, undefined> {
       if (consumed) {
-        throw new CloneforceError(
-          'Cannot iterate over a consumed stream, use `.tee()` to split the stream.',
-        );
+        throw new CloneforceError('Cannot iterate over a consumed stream, use `.tee()` to split the stream.');
       }
       consumed = true;
       let done = false;

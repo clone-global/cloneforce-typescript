@@ -19,12 +19,32 @@ export class Completions extends APIResource {
    * events: `message.delta` (incremental text), `message.completed` (final message),
    * `done` (stream end).
    */
-  create(chatID: string, params: CompletionCreateParamsNonStreaming, options?: RequestOptions): APIPromise<ChatsAPI.ChatCompletionResponse>
-  create(chatID: string, params: CompletionCreateParamsStreaming, options?: RequestOptions): APIPromise<Stream<ChatCompletionChunk>>
-  create(chatID: string, params: CompletionCreateParamsBase, options?: RequestOptions): APIPromise<Stream<ChatCompletionChunk> | ChatsAPI.ChatCompletionResponse>
-  create(chatID: string, params: CompletionCreateParams, options?: RequestOptions): APIPromise<ChatsAPI.ChatCompletionResponse> | APIPromise<Stream<ChatCompletionChunk>> {
-    const { cloneId, ...body } = params
-    return this._client.post(path`/public/v1/clones/${cloneId}/chats/${chatID}/completions`, { body, ...options, stream: params.stream ?? false }) as APIPromise<ChatsAPI.ChatCompletionResponse> | APIPromise<Stream<ChatCompletionChunk>>;
+  create(
+    chatID: string,
+    params: CompletionCreateParamsNonStreaming,
+    options?: RequestOptions,
+  ): APIPromise<ChatsAPI.ChatCompletionResponse>;
+  create(
+    chatID: string,
+    params: CompletionCreateParamsStreaming,
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk>>;
+  create(
+    chatID: string,
+    params: CompletionCreateParamsBase,
+    options?: RequestOptions,
+  ): APIPromise<Stream<ChatCompletionChunk> | ChatsAPI.ChatCompletionResponse>;
+  create(
+    chatID: string,
+    params: CompletionCreateParams,
+    options?: RequestOptions,
+  ): APIPromise<ChatsAPI.ChatCompletionResponse> | APIPromise<Stream<ChatCompletionChunk>> {
+    const { cloneId, ...body } = params;
+    return this._client.post(path`/public/v1/clones/${cloneId}/chats/${chatID}/completions`, {
+      body,
+      ...options,
+      stream: params.stream ?? false,
+    }) as APIPromise<ChatsAPI.ChatCompletionResponse> | APIPromise<Stream<ChatCompletionChunk>>;
   }
 }
 
@@ -56,7 +76,7 @@ export interface ChatCompletionCompleted {
   role: string;
 }
 
-export type CompletionCreateParams = CompletionCreateParamsNonStreaming | CompletionCreateParamsStreaming
+export type CompletionCreateParams = CompletionCreateParamsNonStreaming | CompletionCreateParamsStreaming;
 
 export interface CompletionCreateParamsBase {
   /**
@@ -76,8 +96,8 @@ export interface CompletionCreateParamsBase {
 }
 
 export namespace CompletionCreateParams {
-  export type CompletionCreateParamsNonStreaming = CompletionsAPI.CompletionCreateParamsNonStreaming
-  export type CompletionCreateParamsStreaming = CompletionsAPI.CompletionCreateParamsStreaming
+  export type CompletionCreateParamsNonStreaming = CompletionsAPI.CompletionCreateParamsNonStreaming;
+  export type CompletionCreateParamsStreaming = CompletionsAPI.CompletionCreateParamsStreaming;
 }
 
 export interface CompletionCreateParamsNonStreaming extends CompletionCreateParamsBase {
@@ -100,6 +120,6 @@ export declare namespace Completions {
     type ChatCompletionCompleted as ChatCompletionCompleted,
     type CompletionCreateParams as CompletionCreateParams,
     type CompletionCreateParamsNonStreaming as CompletionCreateParamsNonStreaming,
-    type CompletionCreateParamsStreaming as CompletionCreateParamsStreaming
+    type CompletionCreateParamsStreaming as CompletionCreateParamsStreaming,
   };
 }

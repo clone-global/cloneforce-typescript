@@ -18,7 +18,11 @@ export class Voice extends APIResource {
    * style (e.g. "deeper voice", "more energetic"). An empty body performs a standard
    * regeneration.
    */
-  generate(cloneID: string, body: VoiceGenerateParams | null | undefined = {}, options?: RequestOptions): APIPromise<GenerationStatus> {
+  generate(
+    cloneID: string,
+    body: VoiceGenerateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<GenerationStatus> {
     return this._client.post(path`/public/v1/clones/${cloneID}/voice/generate`, { body, ...options });
   }
 }
@@ -47,6 +51,6 @@ export declare namespace Voice {
   export {
     type GenerateRequest as GenerateRequest,
     type GenerationStatus as GenerationStatus,
-    type VoiceGenerateParams as VoiceGenerateParams
+    type VoiceGenerateParams as VoiceGenerateParams,
   };
 }

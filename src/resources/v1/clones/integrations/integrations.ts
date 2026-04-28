@@ -19,15 +19,23 @@ export class Integrations extends APIResource {
   /**
    * Get an integration
    */
-  retrieve(integrationID: string, params: IntegrationRetrieveParams, options?: RequestOptions): APIPromise<IntegrationSummary> {
-    const { cloneId } = params
+  retrieve(
+    integrationID: string,
+    params: IntegrationRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<IntegrationSummary> {
+    const { cloneId } = params;
     return this._client.get(path`/public/v1/clones/${cloneId}/integrations/${integrationID}`, options);
   }
 
   /**
    * Returns all integrations for a clone (Slack, Email, MS Teams, Phone).
    */
-  list(cloneID: string, query: IntegrationListParams | null | undefined = {}, options?: RequestOptions): APIPromise<IntegrationListResponse> {
+  list(
+    cloneID: string,
+    query: IntegrationListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<IntegrationListResponse> {
     return this._client.get(path`/public/v1/clones/${cloneID}/integrations`, { query, ...options });
   }
 
@@ -35,8 +43,12 @@ export class Integrations extends APIResource {
    * Deletes an integration and performs type-specific cleanup (e.g. Twilio release
    * for phone).
    */
-  delete(integrationID: string, params: IntegrationDeleteParams, options?: RequestOptions): APIPromise<IntegrationDeleteResponse> {
-    const { cloneId } = params
+  delete(
+    integrationID: string,
+    params: IntegrationDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<IntegrationDeleteResponse> {
+    const { cloneId } = params;
     return this._client.delete(path`/public/v1/clones/${cloneId}/integrations/${integrationID}`, options);
   }
 
@@ -45,7 +57,11 @@ export class Integrations extends APIResource {
    * sufficient account credits. Creates a Twilio number, ElevenLabs voice agent, and
    * billing subscription.
    */
-  createPhone(cloneID: string, body: IntegrationCreatePhoneParams, options?: RequestOptions): APIPromise<IntegrationCreatePhoneResponse> {
+  createPhone(
+    cloneID: string,
+    body: IntegrationCreatePhoneParams,
+    options?: RequestOptions,
+  ): APIPromise<IntegrationCreatePhoneResponse> {
     return this._client.post(path`/public/v1/clones/${cloneID}/integrations/phone`, { body, ...options });
   }
 
@@ -54,8 +70,12 @@ export class Integrations extends APIResource {
    * `msteams`. Present this URL to the user and poll the integrations list to detect
    * completion.
    */
-  getSetupURL(integrationID: string, params: IntegrationGetSetupURLParams, options?: RequestOptions): APIPromise<IntegrationGetSetupURLResponse> {
-    const { cloneId } = params
+  getSetupURL(
+    integrationID: string,
+    params: IntegrationGetSetupURLParams,
+    options?: RequestOptions,
+  ): APIPromise<IntegrationGetSetupURLResponse> {
+    const { cloneId } = params;
     return this._client.get(path`/public/v1/clones/${cloneId}/integrations/${integrationID}/setup`, options);
   }
 }
@@ -74,7 +94,11 @@ export interface IntegrationSummary {
   /**
    * Type-specific integration details
    */
-  detail?: IntegrationSummary.SlackDetail | IntegrationSummary.EmailDetail | IntegrationSummary.MsTeamsDetail | IntegrationSummary.PhoneDetail;
+  detail?:
+    | IntegrationSummary.SlackDetail
+    | IntegrationSummary.EmailDetail
+    | IntegrationSummary.MsTeamsDetail
+    | IntegrationSummary.PhoneDetail;
 
   errorMessage?: string;
 
@@ -167,19 +191,19 @@ export declare namespace Integrations {
     type IntegrationListParams as IntegrationListParams,
     type IntegrationDeleteParams as IntegrationDeleteParams,
     type IntegrationCreatePhoneParams as IntegrationCreatePhoneParams,
-    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams
+    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams,
   };
 
   export {
     Slack as Slack,
     type SlackIntegration as SlackIntegration,
-    type SlackUpdateParams as SlackUpdateParams
+    type SlackUpdateParams as SlackUpdateParams,
   };
 
   export {
     Msteams as Msteams,
     type MsTeamsTeamRef as MsTeamsTeamRef,
     type MsteamTeamsResponse as MsteamTeamsResponse,
-    type MsteamTeamsParams as MsteamTeamsParams
+    type MsteamTeamsParams as MsteamTeamsParams,
   };
 }

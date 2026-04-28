@@ -19,7 +19,11 @@ export class Headshot extends APIResource {
    * appearance (e.g. "longer hair", "wearing glasses"). An empty body performs a
    * standard regeneration.
    */
-  generate(cloneID: string, body: HeadshotGenerateParams | null | undefined = {}, options?: RequestOptions): APIPromise<VoiceAPI.GenerationStatus> {
+  generate(
+    cloneID: string,
+    body: HeadshotGenerateParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<VoiceAPI.GenerationStatus> {
     return this._client.post(path`/public/v1/clones/${cloneID}/headshot/generate`, { body, ...options });
   }
 }
@@ -33,7 +37,5 @@ export interface HeadshotGenerateParams {
 }
 
 export declare namespace Headshot {
-  export {
-    type HeadshotGenerateParams as HeadshotGenerateParams
-  };
+  export { type HeadshotGenerateParams as HeadshotGenerateParams };
 }
