@@ -20,7 +20,7 @@ export class Tasks extends APIResource {
    * Get a scheduled task
    */
   retrieve(taskID: string, params: TaskRetrieveParams, options?: RequestOptions): APIPromise<TaskSummary> {
-    const { cloneId } = params
+    const { cloneId } = params;
     return this._client.get(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, options);
   }
 
@@ -28,14 +28,18 @@ export class Tasks extends APIResource {
    * Updates one or more fields on a scheduled task.
    */
   update(taskID: string, params: TaskUpdateParams, options?: RequestOptions): APIPromise<TaskSummary> {
-    const { cloneId, ...body } = params
+    const { cloneId, ...body } = params;
     return this._client.patch(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, { body, ...options });
   }
 
   /**
    * Returns all scheduled tasks for a clone.
    */
-  list(cloneID: string, query: TaskListParams | null | undefined = {}, options?: RequestOptions): APIPromise<TaskListResponse> {
+  list(
+    cloneID: string,
+    query: TaskListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<TaskListResponse> {
     return this._client.get(path`/public/v1/clones/${cloneID}/tasks`, { query, ...options });
   }
 
@@ -43,7 +47,7 @@ export class Tasks extends APIResource {
    * Delete a scheduled task
    */
   delete(taskID: string, params: TaskDeleteParams, options?: RequestOptions): APIPromise<TaskDeleteResponse> {
-    const { cloneId } = params
+    const { cloneId } = params;
     return this._client.delete(path`/public/v1/clones/${cloneId}/tasks/${taskID}`, options);
   }
 }
@@ -162,6 +166,6 @@ export declare namespace Tasks {
     type TaskRetrieveParams as TaskRetrieveParams,
     type TaskUpdateParams as TaskUpdateParams,
     type TaskListParams as TaskListParams,
-    type TaskDeleteParams as TaskDeleteParams
+    type TaskDeleteParams as TaskDeleteParams,
   };
 }

@@ -27,14 +27,21 @@ export class Connections extends APIResource {
    * Updates name, key, and/or value on a standard connection. OAuth connections
    * cannot be updated here.
    */
-  update(connectionID: string, body: ConnectionUpdateParams, options?: RequestOptions): APIPromise<ConnectionDetail> {
+  update(
+    connectionID: string,
+    body: ConnectionUpdateParams,
+    options?: RequestOptions,
+  ): APIPromise<ConnectionDetail> {
     return this._client.patch(path`/public/v1/connections/${connectionID}`, { body, ...options });
   }
 
   /**
    * Returns all connections in the organization.
    */
-  list(query: ConnectionListParams | null | undefined = {}, options?: RequestOptions): APIPromise<ConnectionListResponse> {
+  list(
+    query: ConnectionListParams | null | undefined = {},
+    options?: RequestOptions,
+  ): APIPromise<ConnectionListResponse> {
     return this._client.get('/public/v1/connections', { query, ...options });
   }
 
@@ -195,6 +202,6 @@ export declare namespace Connections {
     type ConnectionCreateParams as ConnectionCreateParams,
     type ConnectionUpdateParams as ConnectionUpdateParams,
     type ConnectionListParams as ConnectionListParams,
-    type ConnectionCreateOAuthParams as ConnectionCreateOAuthParams
+    type ConnectionCreateOAuthParams as ConnectionCreateOAuthParams,
   };
 }

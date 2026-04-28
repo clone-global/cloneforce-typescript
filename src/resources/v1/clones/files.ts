@@ -20,7 +20,7 @@ export class Files extends APIResource {
    * Get a knowledge base file
    */
   retrieve(fileID: string, params: FileRetrieveParams, options?: RequestOptions): APIPromise<KBFileSummary> {
-    const { cloneId } = params
+    const { cloneId } = params;
     return this._client.get(path`/public/v1/clones/${cloneId}/files/${fileID}`, options);
   }
 
@@ -35,7 +35,7 @@ export class Files extends APIResource {
    * **Not yet implemented.** Returns 501. Pending Pinecone migration.
    */
   delete(fileID: string, params: FileDeleteParams, options?: RequestOptions): APIPromise<FileDeleteResponse> {
-    const { cloneId } = params
+    const { cloneId } = params;
     return this._client.delete(path`/public/v1/clones/${cloneId}/files/${fileID}`, options);
   }
 }
@@ -85,6 +85,6 @@ export declare namespace Files {
     type FileDeleteResponse as FileDeleteResponse,
     type FileCreateParams as FileCreateParams,
     type FileRetrieveParams as FileRetrieveParams,
-    type FileDeleteParams as FileDeleteParams
+    type FileDeleteParams as FileDeleteParams,
   };
 }

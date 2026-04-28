@@ -2,25 +2,81 @@
 
 import { APIResource } from '../../../core/resource';
 import * as ActivityAPI from './activity';
-import { Activity, ActivityDeleteParams, ActivityDeleteResponse, ActivityListResponse, ActivityRetrieveParams, ActivityRetrieveResponse } from './activity';
+import {
+  Activity,
+  ActivityDeleteParams,
+  ActivityDeleteResponse,
+  ActivityListResponse,
+  ActivityRetrieveParams,
+  ActivityRetrieveResponse,
+} from './activity';
 import * as FilesAPI from './files';
-import { FileCreateParams, FileDeleteParams, FileDeleteResponse, FileListResponse, FileRetrieveParams, Files, KBFileSummary } from './files';
+import {
+  FileCreateParams,
+  FileDeleteParams,
+  FileDeleteResponse,
+  FileListResponse,
+  FileRetrieveParams,
+  Files,
+  KBFileSummary,
+} from './files';
 import * as GalleryAPI from './gallery';
-import { Gallery, GalleryCreateParams, GalleryDeleteParams, GalleryDeleteResponse, GalleryItemSummary, GalleryListParams, GalleryListResponse, GalleryRetrieveParams } from './gallery';
+import {
+  Gallery,
+  GalleryCreateParams,
+  GalleryDeleteParams,
+  GalleryDeleteResponse,
+  GalleryItemSummary,
+  GalleryListParams,
+  GalleryListResponse,
+  GalleryRetrieveParams,
+} from './gallery';
 import * as HeadshotAPI from './headshot';
 import { Headshot, HeadshotGenerateParams } from './headshot';
 import * as ProfileAPI from './profile';
 import { CloneHeadshot, CloneProfile, Profile, ProfileUpdateParams } from './profile';
 import * as TasksAPI from './tasks';
-import { TaskCreateParams, TaskDeleteParams, TaskDeleteResponse, TaskListParams, TaskListResponse, TaskRecurrence, TaskRetrieveParams, TaskSummary, TaskUpdateParams, Tasks } from './tasks';
+import {
+  TaskCreateParams,
+  TaskDeleteParams,
+  TaskDeleteResponse,
+  TaskListParams,
+  TaskListResponse,
+  TaskRecurrence,
+  TaskRetrieveParams,
+  TaskSummary,
+  TaskUpdateParams,
+  Tasks,
+} from './tasks';
 import * as VoiceAPI from './voice';
 import { GenerateRequest, GenerationStatus, Voice, VoiceGenerateParams } from './voice';
 import * as ChatsAPI from './chats/chats';
 import { ChatCompletionResponse, ChatCreateParams, Chats, CreateChatResponse } from './chats/chats';
 import * as IntegrationsAPI from './integrations/integrations';
-import { IntegrationCreatePhoneParams, IntegrationCreatePhoneResponse, IntegrationDeleteParams, IntegrationDeleteResponse, IntegrationGetSetupURLParams, IntegrationGetSetupURLResponse, IntegrationListParams, IntegrationListResponse, IntegrationRetrieveParams, IntegrationSummary, Integrations } from './integrations/integrations';
+import {
+  IntegrationCreatePhoneParams,
+  IntegrationCreatePhoneResponse,
+  IntegrationDeleteParams,
+  IntegrationDeleteResponse,
+  IntegrationGetSetupURLParams,
+  IntegrationGetSetupURLResponse,
+  IntegrationListParams,
+  IntegrationListResponse,
+  IntegrationRetrieveParams,
+  IntegrationSummary,
+  Integrations,
+} from './integrations/integrations';
 import * as SkillsAPI from './skills/skills';
-import { SkillCreateParams, SkillDeleteParams, SkillDeleteResponse, SkillListParams, SkillListResponse, SkillSummary, SkillUpdateParams, Skills } from './skills/skills';
+import {
+  SkillCreateParams,
+  SkillDeleteParams,
+  SkillDeleteResponse,
+  SkillListParams,
+  SkillListResponse,
+  SkillSummary,
+  SkillUpdateParams,
+  Skills,
+} from './skills/skills';
 import { APIPromise } from '../../../core/api-promise';
 import { RequestOptions } from '../../../internal/request-options';
 
@@ -83,28 +139,23 @@ Clones.Activity = Activity;
 Clones.Chats = Chats;
 
 export declare namespace Clones {
-  export {
-    type CloneListResponse as CloneListResponse
-  };
+  export { type CloneListResponse as CloneListResponse };
 
   export {
     Profile as Profile,
     type CloneHeadshot as CloneHeadshot,
     type CloneProfile as CloneProfile,
-    type ProfileUpdateParams as ProfileUpdateParams
+    type ProfileUpdateParams as ProfileUpdateParams,
   };
 
   export {
     Voice as Voice,
     type GenerateRequest as GenerateRequest,
     type GenerationStatus as GenerationStatus,
-    type VoiceGenerateParams as VoiceGenerateParams
+    type VoiceGenerateParams as VoiceGenerateParams,
   };
 
-  export {
-    Headshot as Headshot,
-    type HeadshotGenerateParams as HeadshotGenerateParams
-  };
+  export { Headshot as Headshot, type HeadshotGenerateParams as HeadshotGenerateParams };
 
   export {
     Skills as Skills,
@@ -114,7 +165,7 @@ export declare namespace Clones {
     type SkillCreateParams as SkillCreateParams,
     type SkillUpdateParams as SkillUpdateParams,
     type SkillListParams as SkillListParams,
-    type SkillDeleteParams as SkillDeleteParams
+    type SkillDeleteParams as SkillDeleteParams,
   };
 
   export {
@@ -127,7 +178,7 @@ export declare namespace Clones {
     type TaskRetrieveParams as TaskRetrieveParams,
     type TaskUpdateParams as TaskUpdateParams,
     type TaskListParams as TaskListParams,
-    type TaskDeleteParams as TaskDeleteParams
+    type TaskDeleteParams as TaskDeleteParams,
   };
 
   export {
@@ -137,7 +188,7 @@ export declare namespace Clones {
     type FileDeleteResponse as FileDeleteResponse,
     type FileCreateParams as FileCreateParams,
     type FileRetrieveParams as FileRetrieveParams,
-    type FileDeleteParams as FileDeleteParams
+    type FileDeleteParams as FileDeleteParams,
   };
 
   export {
@@ -148,7 +199,7 @@ export declare namespace Clones {
     type GalleryCreateParams as GalleryCreateParams,
     type GalleryRetrieveParams as GalleryRetrieveParams,
     type GalleryListParams as GalleryListParams,
-    type GalleryDeleteParams as GalleryDeleteParams
+    type GalleryDeleteParams as GalleryDeleteParams,
   };
 
   export {
@@ -162,7 +213,7 @@ export declare namespace Clones {
     type IntegrationListParams as IntegrationListParams,
     type IntegrationDeleteParams as IntegrationDeleteParams,
     type IntegrationCreatePhoneParams as IntegrationCreatePhoneParams,
-    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams
+    type IntegrationGetSetupURLParams as IntegrationGetSetupURLParams,
   };
 
   export {
@@ -171,13 +222,13 @@ export declare namespace Clones {
     type ActivityListResponse as ActivityListResponse,
     type ActivityDeleteResponse as ActivityDeleteResponse,
     type ActivityRetrieveParams as ActivityRetrieveParams,
-    type ActivityDeleteParams as ActivityDeleteParams
+    type ActivityDeleteParams as ActivityDeleteParams,
   };
 
   export {
     Chats as Chats,
     type ChatCompletionResponse as ChatCompletionResponse,
     type CreateChatResponse as CreateChatResponse,
-    type ChatCreateParams as ChatCreateParams
+    type ChatCreateParams as ChatCreateParams,
   };
 }

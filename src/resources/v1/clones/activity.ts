@@ -12,8 +12,12 @@ export class Activity extends APIResource {
   /**
    * Returns a single task run with skill execution details.
    */
-  retrieve(activityID: string, params: ActivityRetrieveParams, options?: RequestOptions): APIPromise<ActivityRetrieveResponse> {
-    const { cloneId } = params
+  retrieve(
+    activityID: string,
+    params: ActivityRetrieveParams,
+    options?: RequestOptions,
+  ): APIPromise<ActivityRetrieveResponse> {
+    const { cloneId } = params;
     return this._client.get(path`/public/v1/clones/${cloneId}/activity/${activityID}`, options);
   }
 
@@ -27,8 +31,12 @@ export class Activity extends APIResource {
   /**
    * Delete a task run
    */
-  delete(activityID: string, params: ActivityDeleteParams, options?: RequestOptions): APIPromise<ActivityDeleteResponse> {
-    const { cloneId } = params
+  delete(
+    activityID: string,
+    params: ActivityDeleteParams,
+    options?: RequestOptions,
+  ): APIPromise<ActivityDeleteResponse> {
+    const { cloneId } = params;
     return this._client.delete(path`/public/v1/clones/${cloneId}/activity/${activityID}`, options);
   }
 }
@@ -99,6 +107,6 @@ export declare namespace Activity {
     type ActivityListResponse as ActivityListResponse,
     type ActivityDeleteResponse as ActivityDeleteResponse,
     type ActivityRetrieveParams as ActivityRetrieveParams,
-    type ActivityDeleteParams as ActivityDeleteParams
+    type ActivityDeleteParams as ActivityDeleteParams,
   };
 }
