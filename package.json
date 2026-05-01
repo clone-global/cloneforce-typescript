@@ -1,6 +1,6 @@
 {
   "name": "cloneforce",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "The official TypeScript library for the Cloneforce API",
   "author": "Cloneforce <developers@cloneforce.com>",
   "types": "dist/index.d.ts",
