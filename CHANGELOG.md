@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0 (2026-05-01)
+
+Full Changelog: [v0.1.2...v0.2.0](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.2...v0.2.0)
+
+### Features
+
+* support setting headers via env ([7ca3813](https://github.com/clone-global/cloneforce-typescript/commit/7ca3813e3df495b91c19b7daccd4bc9420420b9d))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([2e19b8e](https://github.com/clone-global/cloneforce-typescript/commit/2e19b8e44eca12d4a1f81966a791a91145386a10))
+* **formatter:** run prettier and eslint separately ([1a079fe](https://github.com/clone-global/cloneforce-typescript/commit/1a079fe518d1498c413cd23b65b8c53921641e55))
+* **internal:** codegen related update ([3ea3d6f](https://github.com/clone-global/cloneforce-typescript/commit/3ea3d6f2e75c59245942d434ad4e8a41db2eb589))
+* **internal:** codegen related update ([3884f3d](https://github.com/clone-global/cloneforce-typescript/commit/3884f3dfeabe948c8f36b3de4d16dafabe48ef9a))
+* **internal:** more robust bootstrap script ([2b5f278](https://github.com/clone-global/cloneforce-typescript/commit/2b5f278235bf841fc579ff2c0640d638992852c2))
+
 ## 0.1.2 (2026-03-29)
 
 Full Changelog: [v0.1.1...v0.1.2](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.1...v0.1.2)
