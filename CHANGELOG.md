@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.2.0 (2026-07-18)
+
+Full Changelog: [v0.1.2...v0.2.0](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.2...v0.2.0)
+
+### Features
+
+* **stlc:** configurable CI runner and private-production-repo support in workflow templates ([ae508eb](https://github.com/clone-global/cloneforce-typescript/commit/ae508eb83908492c8caaf68963f3c83cb7ea99c5))
+* support setting headers via env ([7ca3813](https://github.com/clone-global/cloneforce-typescript/commit/7ca3813e3df495b91c19b7daccd4bc9420420b9d))
+
+
+### Bug Fixes
+
+* **ci:** bump @arethetypeswrong/cli to ^0.18.0 and run CI workflows on Node 24 ([01c00d2](https://github.com/clone-global/cloneforce-typescript/commit/01c00d2fc777e14b701c527fef076a742e35dd16))
+* **client:** send content-type header for requests with an omitted optional body ([8ab5283](https://github.com/clone-global/cloneforce-typescript/commit/8ab52839ee20afd34559a57a8f9741107d92b5ab))
+* **typescript:** upgrade tsc-multi so that it works with Node 26 ([4950c8d](https://github.com/clone-global/cloneforce-typescript/commit/4950c8d21e665471629dbf9d817dff1c4f5e8431))
+
+
+### Chores
+
+* **format:** run eslint and prettier separately ([2e19b8e](https://github.com/clone-global/cloneforce-typescript/commit/2e19b8e44eca12d4a1f81966a791a91145386a10))
+* **formatter:** run prettier and eslint separately ([1a079fe](https://github.com/clone-global/cloneforce-typescript/commit/1a079fe518d1498c413cd23b65b8c53921641e55))
+* **internal:** codegen related update ([3ea3d6f](https://github.com/clone-global/cloneforce-typescript/commit/3ea3d6f2e75c59245942d434ad4e8a41db2eb589))
+* **internal:** codegen related update ([3884f3d](https://github.com/clone-global/cloneforce-typescript/commit/3884f3dfeabe948c8f36b3de4d16dafabe48ef9a))
+* **internal:** more robust bootstrap script ([2b5f278](https://github.com/clone-global/cloneforce-typescript/commit/2b5f278235bf841fc579ff2c0640d638992852c2))
+* redact api-key headers in debug logs ([e122ce5](https://github.com/clone-global/cloneforce-typescript/commit/e122ce56234aba98972a46a4f94fbb075dfdb4a3))
+* **tests:** remove redundant File import ([c0dc570](https://github.com/clone-global/cloneforce-typescript/commit/c0dc570f12b2919651ead625bee14a4a9b4a1806))
+
 ## 0.1.2 (2026-03-29)
 
 Full Changelog: [v0.1.1...v0.1.2](https://github.com/clone-global/cloneforce-typescript/compare/v0.1.1...v0.1.2)
