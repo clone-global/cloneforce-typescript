@@ -146,6 +146,12 @@ export interface IntegrationCreatePhoneResponse {
 }
 
 export interface IntegrationGetSetupURLResponse {
+  /**
+   * @deprecated Deprecated. This URL pointed at the legacy v1 web app, retired in
+   * September 2026, and no longer resolves to a setup page. Complete the integration
+   * setup in Studio instead. The field is kept so existing clients keep parsing the
+   * response.
+   */
   setupUrl: string;
 
   type: string;
